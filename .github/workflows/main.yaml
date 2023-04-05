@@ -69,13 +69,16 @@ jobs:
         echo "Value 1: $STEPSET_VALUE_1"
         echo "Value 2: $STEPSET_VALUE_2"
 
+    # 동적으로 변수 세팅하기, add-mask - 중요한 정보 마스킹하기
     - name: Set output value
       id: first
       shell: bash
+
       run: |
         first_value="This is the value for the first output" 
 
         echo "::add-mask::$first_value"
+
         echo "::set-output name=april05::$first_value"  
         echo "april06=$first_value" >> $GITHUB_OUTPUT
 
@@ -84,6 +87,12 @@ jobs:
       run: |
         echo "The value of the first output is: ${{steps.first.outputs.april05}}" 
         echo "The value of the first output is: ${{steps.first.outputs.april06}}"
+
+    # Secret 값 가져오기
+    -name: Get Secret value
+      shell: bash
+      run: |
+        echo "My secret value is: ${{ secrets.MY_SECRET }}" 
 
 
 
