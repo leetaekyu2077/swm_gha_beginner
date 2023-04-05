@@ -26,5 +26,5 @@ jobs:
       uses: chrivand/action-webex-js@main
       env:
         WEBEX_TOKEN: "${{ secrets.WEBEB_TOKEN }}"
-        WEBEX_ROOM_ID: "${{ secrets.WEBEX_ROOM_ID }}"
+        WEBEX_ROOM_ID: "Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vMGYyN2NhZjAtZDNiOS0xMWVkLWFlZDQtY2I1ZmM2YTNmZmFj"
         MARKDOWN_MESSAGE: "깃헙 액션 101 워크샵에서 보내는 메시지입니다. 저는 이태규입니다. custom action으로 보내는 메시지입니다. ${{ github.repository }}."
