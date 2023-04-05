@@ -9,11 +9,15 @@ jobs:
     strategy:
       matrix:
         os: [ 'windows-latest', 'macos-latest', 'ubuntu-latest' ]
+        nodejs: ['16.x', '18.x']
 
+    # matrix 내의 os 배열 요소들에 대해 한 번씩 실행
     runs-on: ${{ matrix.os }}
 
     steps:
     - name: Say Hello World on ${{ matrix.os }}
       shell: bash
+      # with를 통해 각 os에 대해 nodejs 내의 각 요소들을 하나씩 실행, 총 6번의 실행 발생  
       run: |
         echo "Hello World on ${{ matrix.os }}"
+        echo "Hello World on ${{ matrix.os }} with ${{matrix.nodejs}}" 
