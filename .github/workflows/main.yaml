@@ -52,19 +52,19 @@ jobs:
     - name: Set environment variable 2
       shell: pwsh
       run: |
-        echo "STEPSET_VALUE_2='This is he value 1 set in the step'" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
+        echo "STEPSET_VALUE_2='This is he value 2 set in the step'" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
 
     - name: Get environment variables in powershell
       shell: pwsh
       run: |
         echo "Value 1: $env:STEPSET_VALUE_1"
-        echo "Value 1: $env:STEPSET_VALUE_1"
+        echo "Value 1: $env:STEPSET_VALUE_2"
 
     - name: Get environment variables in bash
       shell: bash
       run: |
         echo "Value 1: $STEPSET_VALUE_1"
-        echo "Value 1: $STEPSET_VALUE_1"
+        echo "Value 1: $STEPSET_VALUE_2"
 
   second-job:
     name: 'Second Job'
