@@ -89,7 +89,7 @@ jobs:
         echo "The value of the first output is: ${{steps.first.outputs.april06}}"
 
     # Secret 값 가져오기
-    -name: Get Secret value
+    - name: Get Secret value
       shell: bash
       run: |
         echo "My secret value is: ${{ secrets.MY_SECRET }}" 
