@@ -82,6 +82,7 @@ jobs:
         echo "::set-output name=april05::$first_value"  
         echo "april06=$first_value" >> $GITHUB_OUTPUT
 
+    # 세팅한 변수 가져오기
     - name: Get output value
       shell: bash
       run: |
