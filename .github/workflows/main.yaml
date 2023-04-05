@@ -2,8 +2,9 @@ name: 'SWM GitHub Actions Basic'
 
 on: push    # 트리거, 지금은 push 했을 때 아래 jobs가 실행되게 설정한 것, []에 여러 개 넣어서도 사용 가능
 
-env:
+env:  # 위치에 따라 전역 변수, 지역 변수처럼 사용 가능
   GLOBAL_LEVEL: "This value comes from the WORKFLOW level"
+  PRESET_VALUE: "This is the preset value"
 
 jobs:
   first-job:
@@ -37,6 +38,33 @@ jobs:
 
       run: |
         echo "Hello World from step 2"
+        echo "Global level: ${{ env.GLOBAL_LEVEL}}"
+        echo "Job level 1: ${{ env.JOB_LEVEL_1}}"
+        echo "Job level 2: ${{ env.JOB_LEVEL_2}}"
+        echo "Step level 1: ${{ env.STEP_LEVEL_1}}"
+        echo "Step level 2: ${{ env.STEP_LEVEL_2}}"
+
+    - name: Set environment variable 1
+      shell: bash
+      run: |
+        echo "STEPSET_VALUE_1='This is he value 1 set in the step'" >> $GITHUB_ENV
+
+    - name: Set environment variable 2
+      shell: pwsh
+      run: |
+        echo "STEPSET_VALUE_2='This is he value 1 set in the step'" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf-8 -Append
+
+    - name: Get environment variables in powershell
+      shell: pwsh
+      run: |
+        echo "Value 1: $env:STEPSET_VALUE_1"
+        echo "Value 1: $env:STEPSET_VALUE_1"
+
+    - name: Get environment variables in bash
+      shell: bash
+      run: |
+        echo "Value 1: $STEPSET_VALUE_1"
+        echo "Value 1: $STEPSET_VALUE_1"
 
   second-job:
     name: 'Second Job'
@@ -55,6 +83,11 @@ jobs:
 
       run: |
         echo "Hello World from step 1"
+        echo "Global level: ${{ env.GLOBAL_LEVEL}}"
+        echo "Job level 1: ${{ env.JOB_LEVEL_1}}"
+        echo "Job level 2: ${{ env.JOB_LEVEL_2}}"
+        echo "Step level 1: ${{ env.STEP_LEVEL_1}}"
+        echo "Step level 2: ${{ env.STEP_LEVEL_2}}"
 
     - name: Say Hello World 2
       shell: pwsh
@@ -64,3 +97,8 @@ jobs:
 
       run: |
         echo "Hello World from step 2"
+        echo "Global level: ${{ env.GLOBAL_LEVEL}}"
+        echo "Job level 1: ${{ env.JOB_LEVEL_1}}"
+        echo "Job level 2: ${{ env.JOB_LEVEL_2}}"
+        echo "Step level 1: ${{ env.STEP_LEVEL_1}}"
+        echo "Step level 2: ${{ env.STEP_LEVEL_2}}"
