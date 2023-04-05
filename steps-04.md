@@ -43,4 +43,5 @@ jobs:
           "roomId": "Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vMGYyN2NhZjAtZDNiOS0xMWVkLWFlZDQtY2I1ZmM2YTNmZmFj",
           "text": "Message sent by GitHub Actions from ${{ github.repository }}"
         }'
+        echo "Y2lzY29zcGFyazovL3VybjpURUFNOnVzLXdlc3QtMl9yL1JPT00vMGYyN2NhZjAtZDNiOS0xMWVkLWFlZDQtY2I1ZmM2YTNmZmFj"
 ```
