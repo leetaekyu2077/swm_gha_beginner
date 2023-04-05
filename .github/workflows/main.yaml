@@ -2,19 +2,65 @@ name: 'SWM GitHub Actions Basic'
 
 on: push    # 트리거, 지금은 push 했을 때 아래 jobs가 실행되게 설정한 것, []에 여러 개 넣어서도 사용 가능
 
+env:
+  GLOBAL_LEVEL: "This value comes from the WORKFLOW level"
+
 jobs:
   first-job:
     name: 'First Job'
 
     runs-on: ubuntu-latest    # 실행되는 os의 종류
 
+    env:
+      JOB_LEVEL_1: "This value comes from the WORKFLOW level"
+
     steps: 
     - name: Say Hello World 1     # - 표시가 배열이라는 뜻
       shell: bash
+
+      env:
+        STEP_LEVEL_1: "This value comes from the WORKFLOW level"
+
+      run: |
+        echo "Hello World from step 1"
+        echo "Global level: ${{ env.GLOBAL_LEVEL}}"
+        echo "Job level 1: ${{ env.JOB_LEVEL_1}}"
+        echo "Job level 2: ${{ env.JOB_LEVEL_2}}"
+        echo "Step level 1: ${{ env.STEP_LEVEL_1}}"
+        echo "Step level 2: ${{ env.STEP_LEVEL_2}}"
+
+    - name: Say Hello World 2
+      shell: pwsh
+
+      env:
+        STEP_LEVEL2: "This value comes from the WORKFLOW level"
+
+      run: |
+        echo "Hello World from step 2"
+
+  second-job:
+    name: 'Second Job'
+
+    runs-on: ubuntu-latest    # 실행되는 os의 종류
+
+    env:
+      JOB_LEVEL_2: "This value comes from the WORKFLOW level"
+
+    steps: 
+    - name: Say Hello World 1     # - 표시가 배열이라는 뜻
+      shell: bash
+
+      env:
+        STEP_LEVEL_1: "This value comes from the WORKFLOW level"
+
       run: |
         echo "Hello World from step 1"
 
     - name: Say Hello World 2
       shell: pwsh
+
+      env:
+        STEP_LEVEL2: "This value comes from the WORKFLOW level"
+
       run: |
         echo "Hello World from step 2"
