@@ -1,6 +1,13 @@
 name: 'SWM GitHub Actions Basic'
 
-on: push
+on: 
+  push:
+    # main 브랜치일 때만 실행
+    branches:
+    - main
+    # v 태그일 때만 실행
+    tags:
+    - 'v*'
 
 jobs:
   first-job:
