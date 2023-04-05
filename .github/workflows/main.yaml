@@ -58,13 +58,13 @@ jobs:
       shell: pwsh
       run: |
         echo "Value 1: $env:STEPSET_VALUE_1"
-        echo "Value 1: $env:STEPSET_VALUE_2"
+        echo "Value 2: $env:STEPSET_VALUE_2"
 
     - name: Get environment variables in bash
       shell: bash
       run: |
         echo "Value 1: $STEPSET_VALUE_1"
-        echo "Value 1: $STEPSET_VALUE_2"
+        echo "Value 2: $STEPSET_VALUE_2"
 
   second-job:
     name: 'Second Job'
