@@ -17,7 +17,7 @@ jobs:
         --header 'Content-Type: application/json' \
         --data-raw '{
           "roomId": "${{ secrets.WEBEX_ROOM_ID }}",
-          "text": "깃헙 액션 101 워크샵에서 보내는 메시지입니다. 저는 이태규입니다. curl 명령어로 보내는 메시지입니다. ${{ github.repository }}"
+          "text": "깃헙 액션 101 워크샵에서 보내는 메시지입니다. 저는 이태규입니다.  curl 명령어로 보내는 메시지입니다. ${{ github.repository }}"
         }'
 
     - name: Post Message to Webex Room
